@@ -1,1 +1,1 @@
-Wifi Car built with Arduino using python
+Wifi Car built with Raspberry PI  using Python
