@@ -6,7 +6,7 @@
 
 body {
   background-color: #aaa;
-  text-align: centre;
+  text-align: center;
 }
 
 /* Dividers */
@@ -50,9 +50,6 @@ h4 {
 
 /* JoySticks */
 
-#joyDiv1,
-#joyDiv2 {
-  width: 200px;
-  height: 200px;
-  margin-bottom: 20px;
+.selected-button {
+  fill: orangered;
 }
