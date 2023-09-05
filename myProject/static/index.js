@@ -53,6 +53,25 @@ function handleSticks(axes) {
   updateStick("controller-b11", axes[2], axes[3]);
 }
 
+//Sending POST request
+
+function sendData(LRAxisRj, UDAxisLj) {
+  $.ajax({
+    url: "/process",
+    type: "POST",
+    contentType: "applcation/json",
+    data: JSON.stringify({
+      leftJoysickUD: UDAxisLj,
+      rightJoystickLR: LRAxisRj,
+    }),
+    success: function (response) {
+      console.log(response.result);
+    },
+    error: function (error) {
+      console.log(`Error: ${error}`);
+    },
+  });
+}
 function gameLoop() {
   if (controllerIndex !== null) {
     const gamepad = navigator.getGamepads()[controllerIndex];
@@ -61,5 +80,4 @@ function gameLoop() {
   }
   requestAnimationFrame(gameLoop);
 }
-
 gameLoop();
