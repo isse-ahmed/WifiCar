@@ -39,7 +39,6 @@ function updateStick(elementId, leftRightAxis, upDownAxis) {
   const stickLeftRight = leftRightAxis * multiplier;
   const stickUpDown = upDownAxis * multiplier;
 
-  console.log(`Left Axis `);
   const stick = document.getElementById(elementId);
 
   const x = Number(stick.dataset.originalXPosition);

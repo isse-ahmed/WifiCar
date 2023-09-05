@@ -5,12 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Wifi-Car</title>
     <link
-      href="/home/ahmed/Documents/WifiCar/Scripts/style/style.css"
+      href="{{ url_for('static',filename='style/style.css') }}"
       rel="stylesheet"
+      type= "text/css"
     />
     <script
-      src="/home/ahmed/Documents/WifiCar/Scripts/scripts/index.js"
-      defer
+      src="{{ url_for('static',filename='index.js') }}"
     ></script>
     <div></div>
   </head>
