@@ -61,9 +61,9 @@ function sendData(LRAxisRj, UDAxisLj) {
   $.ajax({
     url: "/process",
     type: "POST",
-    contentType: "applcation/json",
+    contentType: "application/json",
     data: JSON.stringify({
-      leftJoysickUD: UDAxisLj,
+      leftJoystickUD: UDAxisLj,
       rightJoystickLR: LRAxisRj,
     }),
     success: function (response) {
@@ -74,12 +74,32 @@ function sendData(LRAxisRj, UDAxisLj) {
     },
   });
 }
+//Throttle Function
+
+const throttle = (fn,delay)=>{
+  let lastTime = 0;
+  console.log('Throttling');
+  return (...args) => {
+    const now = new Date().getTime();
+    if( now - lastTime < delay){
+      return;
+    }
+    lastTime = now;
+    fn(...args);
+  }
+}
+
+const tHandleButtons = throttle(handleButtons,100);
+const tHandleSticks = throttle(handleSticks,100);
+
 function gameLoop() {
   if (controllerIndex !== null) {
     const gamepad = navigator.getGamepads()[controllerIndex];
-    handleButtons(gamepad.buttons);
-    handleSticks(gamepad.axes);
+    tHandleButtons(gamepad.buttons);
+    tHandleSticks(gamepad.axes);
   }
   requestAnimationFrame(gameLoop);
 }
+
 gameLoop();
+

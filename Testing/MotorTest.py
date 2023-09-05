@@ -35,10 +35,11 @@ MOTOR2PWM.start(0)
 
 def forward():
 
-    GPIO.output(MOTOR1A,0)
-    GPIO.output(MOTOR1B,1)
-    GPIO.output(MOTOR2A,1)
-    GPIO.output(MOTOR2B,0)
+    GPIO.output(MOTOR1A,1)
+    GPIO.output(MOTOR1B,0)
+    
+    GPIO.output(MOTOR2A,0)
+    GPIO.output(MOTOR2B,1)
 
     MOTOR1PWM.ChangeDutyCycle(60)
     MOTOR2PWM.ChangeDutyCycle(100)
