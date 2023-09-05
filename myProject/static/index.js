@@ -51,6 +51,8 @@ function updateStick(elementId, leftRightAxis, upDownAxis) {
 function handleSticks(axes) {
   updateStick("controller-b10", axes[0], axes[1]);
   updateStick("controller-b11", axes[2], axes[3]);
+
+  sendData(axes[2], axes[1]);
 }
 
 //Sending POST request
